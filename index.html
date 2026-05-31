@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanLab 3D Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="stage">
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo-chip">CL</div>
+                <div class="brand-copy">
+                    <h1>CanLab 3D Studio</h1>
+                    <p>Load, inspect, and animate soda cans in 3D space.</p>
+                </div>
+            </div>
+            <div class="top-actions">
+                <button class="btn ghost" onclick="toggleGalleryPanel()"><i class="fas fa-th-large"></i> Models</button>
+                <button class="btn ghost" onclick="toggleInfoPanel()"><i class="fas fa-layer-group"></i> Info</button>
+                <button class="btn" onclick="toggleWireframe()"><i class="fas fa-draw-polygon"></i> Wireframe</button>
+                <button class="btn" onclick="toggleLighting()"><i class="fas fa-lightbulb"></i> Lighting</button>
+                <label class="color-wrap">
+                    <i class="fas fa-palette"></i>
+                    <input id="lightColorPicker" type="color" value="#ffffff" onchange="setLightColor(this.value)">
+                </label>
+                <button class="btn" onclick="resetCamera()"><i class="fas fa-crosshairs"></i> Center</button>
+                <a class="btn" href="about.html"><i class="fas fa-circle-info"></i> About</a>
+            </div>
+        </header>
+
+        <main class="viewport-shell">
+            <div id="viewer"></div>
+
+            <aside id="galleryPanel" class="panel panel-left">
+                <div class="panel-head">
+                    <h2>Model Gallery</h2>
+                    <p>Select a model object to load into the viewer.</p>
+                </div>
+                <div id="modelGallery" class="model-gallery"></div>
+            </aside>
+
+            <aside id="infoPanel" class="panel panel-right">
+                <div class="panel-head compact">
+                    <h2 id="infoTitle">Model Information</h2>
+                    <p id="infoContent">Choose a model from the gallery.</p>
+                </div>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="details">Details</button>
+                    <button class="tab-btn" data-tab="about">About</button>
+                    <button class="tab-btn" data-tab="media">Media</button>
+                </div>
+                <div id="tab-details" class="tab active">
+                    <div id="stats" class="stats"></div>
+                </div>
+                <div id="tab-about" class="tab">
+                    <p>Interactive 3D UI with dynamic glb animation triggers and model-space controls.</p>
+                    <ul>
+                        <li>Wireframe toggle for technical inspection</li>
+                        <li>Dynamic action buttons from glb clips</li>
+                        <li>Fallback actions for non-animated models</li>
+                        <li>Responsive panel layout for desktop/mobile</li>
+                    </ul>
+                </div>
+                <div id="tab-media" class="tab">
+                    <img id="mediaImage" src="./models/coca-cola-coke-fanta-sprite-pepsi-7up-cans/coke01.png" alt="Model reference media">
+                    <p class="muted">Brand texture/reference media updates with selected model.</p>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="action-dock">
+            <div class="viewer-meta">
+                <h3 id="viewerTitle">3D Viewer</h3>
+                <p id="viewerSub">Load a model to begin.</p>
+            </div>
+            <div class="quick-actions">
+                <button class="btn small" onclick="toggleAutoRotate()">Auto Rotate</button>
+                <button class="btn small primary" onclick="triggerPrimaryAnimation()">Play Main Action</button>
+            </div>
+            <div class="dock-actions">
+                <span class="dock-label">Actions</span>
+                <div id="dynamicActions" class="dynamic-actions"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js?v=20260406_2146"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CanLab 3D Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-page {
+            min-height: 100vh;
+            background: radial-gradient(circle at 10% 0%, #1a2740, #0a111b 50%, #070c14 100%);
+            color: var(--text);
+            overflow-y: auto;
+        }
+
+        .about-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: grid;
+            gap: 0.9rem;
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .about-card {
+            grid-column: span 12;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--panel);
+            backdrop-filter: blur(8px);
+            padding: 1rem;
+        }
+
+        .about-card h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .about-card p,
+        .about-card li {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+
+        .about-card ul {
+            padding-left: 1rem;
+        }
+
+        .about-hero {
+            grid-column: span 12;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 1.2rem;
+            background: linear-gradient(140deg, rgba(255, 77, 77, 0.12), rgba(255, 147, 64, 0.1), rgba(21, 36, 56, 0.78));
+        }
+
+        .about-hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .about-hero p {
+            color: var(--muted);
+            max-width: 780px;
+            line-height: 1.65;
+        }
+
+        .media-grid {
+            display: grid;
+            gap: 0.8rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .media-grid.featured {
+            grid-template-columns: 1fr;
+        }
+
+        .media-item {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(10, 16, 25, 0.75);
+        }
+
+        .media-item img,
+        .media-item video {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-item video {
+            height: auto;
+            max-height: 560px;
+            background: #05080d;
+        }
+
+        .media-item.wide {
+            border-radius: 16px;
+            background: linear-gradient(180deg, rgba(11, 18, 29, 0.92), rgba(14, 24, 38, 0.9));
+        }
+
+        .media-meta {
+            display: grid;
+            gap: 0.35rem;
+            padding: 0.85rem 0.9rem 1rem;
+        }
+
+        .media-meta strong {
+            font-size: 0.96rem;
+            color: var(--text);
+        }
+
+        .media-item p {
+            padding: 0.55rem 0.7rem 0.7rem;
+            font-size: 0.84rem;
+        }
+
+        @media (min-width: 900px) {
+            .about-card.span-6 {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="about-page">
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo-chip">CL</div>
+            <div class="brand-copy">
+                <h1>CanLab 3D Studio</h1>
+                <p>About this app, originality statement, references, and media context.</p>
+            </div>
+        </div>
+        <div class="top-actions">
+            <a class="btn" href="index.html"><i class="fas fa-arrow-left"></i> Back To Viewer</a>
+        </div>
+    </header>
+
+    <main class="about-main">
+        <section class="about-hero">
+            <h2>Interactive Can Modeling Showcase</h2>
+            <p>
+                This project upgrades classroom can models with improved geometry behavior, material readability,
+                lighting and camera setup, and JavaScript-driven UI interactions such as wireframe toggles, animation triggers,
+                and responsive model switching.
+            </p>
+        </section>
+
+        <article class="about-card span-6">
+            <h2>Originality Statement</h2>
+            <p>
+                Source 3D assets were remixed with custom interaction code and UI integration. The final app workflow,
+                dynamic action system, scene behavior, and presentation layout were developed as original coursework implementation.
+            </p>
+        </article>
+
+        <article class="about-card span-6">
+            <h2>Site Map</h2>
+            <ul>
+                <li>Home (`index.html`): 3D viewer, model gallery, wireframe/lighting/tools, and animation actions.</li>
+                <li>About (`about.html`): project context, originality declaration, references, and media block.</li>
+            </ul>
+        </article>
+
+        <article class="about-card span-6">
+            <h2>References</h2>
+            <ul>
+                <li>Three.js: https://threejs.org/</li>
+                <li>GLTF / GLB format: https://www.khronos.org/gltf/</li>
+                <li>Icon pack: https://fontawesome.com/</li>
+            </ul>
+        </article>
+
+        <article class="about-card span-6">
+            <h2>GitHub</h2>
+            <p>
+                Replace this placeholder with your final repository URL:
+            </p>
+            <p><code>https://github.com/yourname/your-3d-showcase-repo</code></p>
+        </article>
+
+        <article class="about-card">
+            <h2>Media Block - Project Introduction Video</h2>
+            <div class="media-grid featured">
+                <div class="media-item wide">
+                    <video controls preload="metadata" playsinline>
+                        <source src="./bandicam 2026-04-18 08-36-50-747.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="media-meta">
+                        <strong>CanLab 3D Studio Walkthrough</strong>
+                        <p>
+                            Introduction video showing the final 3D viewer, model switching, wireframe mode,
+                            lighting controls, animation triggers, and the upgraded soda-can / bottle presentation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
